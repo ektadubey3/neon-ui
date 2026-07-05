@@ -19,7 +19,7 @@ jobs:
 
       # 2. Installs Node.js on virtual machine
       - name: Setup Node.js
-        uses: actions/types/setup-node@6.4.0
+        uses: actions/setup-node@4
         with:
           node-version: "24.18.0"
           registry-url: "https://www.npmjs.org"
