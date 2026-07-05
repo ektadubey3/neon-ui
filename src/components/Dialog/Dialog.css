@@ -1,0 +1,54 @@
+.ds-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(21 25 34 / 0.48);
+}
+
+.ds-dialog {
+  display: grid;
+  gap: 18px;
+  width: min(480px, 100%);
+  padding: 20px;
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+  box-shadow: var(--ds-shadow-md);
+  font-family: var(--ds-font-sans);
+}
+
+.ds-dialog__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.ds-dialog__title {
+  margin: 0;
+  color: var(--ds-color-text);
+  font: 700 18px/1.3 var(--ds-font-sans);
+}
+
+.ds-dialog__description {
+  margin: 4px 0 0;
+  color: var(--ds-color-text-muted);
+  font: 400 14px/1.45 var(--ds-font-sans);
+}
+
+.ds-dialog__body {
+  color: var(--ds-color-text-muted);
+  font: 400 14px/1.55 var(--ds-font-sans);
+}
+
+.ds-dialog__body p {
+  margin: 0;
+}
+
+.ds-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
