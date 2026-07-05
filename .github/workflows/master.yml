@@ -24,6 +24,7 @@ jobs:
           node-version: "24.18.0"
           registry-url: "https://registry.npmjs.org/"
           cache: 'npm'
+          always-auth: true # Forces the runner to apply authentication tokens globally
 
       #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
@@ -49,6 +50,6 @@ jobs:
       - name: Publish to npm
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}  
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}  
 
       
