@@ -51,7 +51,5 @@ jobs:
           # Explicitly maps your secret key straight into the local runtime layer
           echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN_KEY}}" > .npmrc
           npm publish
-        env:
-          NPM_TOKEN_KEY: ${{ secrets.NPM_TOKEN_KEY }}  
 
       
