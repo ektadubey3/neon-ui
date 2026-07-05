@@ -46,6 +46,8 @@ jobs:
         run: |
           git checkout master
           git push origin master --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
