@@ -40,7 +40,9 @@ jobs:
         
       #5 Automatically updates package.json (e.g., 1.0.0 -> 1.0.1)
       - name: Auto Increment Version
-        run: 'npm version patch -m "chore(release): bump version to %s [skip ci]"'
+        run: |
+          npm config set force true
+          'npm version patch -m "chore(release): bump version to %s [skip ci]"'
 
       #6 Pushes the version update and tag back into the master branch
       - name: Push Version Update to GitHub
