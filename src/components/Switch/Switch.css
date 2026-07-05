@@ -1,0 +1,70 @@
+.ds-switch {
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  min-width: 240px;
+  font-family: var(--ds-font-sans);
+}
+
+.ds-switch__label {
+  color: var(--ds-color-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.ds-switch__hint {
+  margin: 3px 0 0;
+  color: var(--ds-color-text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ds-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.ds-switch__track {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-color-border-strong);
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.ds-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: var(--ds-shadow-sm);
+  transition: transform 160ms ease;
+}
+
+.ds-switch__input:checked + .ds-switch__track {
+  background: var(--ds-color-brand);
+}
+
+.ds-switch__input:checked + .ds-switch__track .ds-switch__thumb {
+  transform: translateX(20px);
+}
+
+.ds-switch__input:focus-visible + .ds-switch__track {
+  outline: 3px solid color-mix(in srgb, var(--ds-color-focus), transparent 55%);
+  outline-offset: 2px;
+}
+
+.ds-switch__input:disabled + .ds-switch__track {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

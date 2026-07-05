@@ -1,11 +1,23 @@
 {
-  "name": "@neon-ui",
-  "version": "0.1.0",
-  "private": true,
+  "name": "neon-ui-lib",
+  "version": "1.0.0",
+  "description": "Neon UI is a library which provides production-oriented React components, CSS custom properties, and TypeScript tokens for frontend teams building product interfaces.",
+  "keywords": [
+    "ui",
+    "component-library",
+    "design-system"
+  ],
+  "homepage": "https://github.com/ektadubey3/neon-ui#readme",
+  "bugs": {
+    "url": "https://github.com/ektadubey3/neon-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ektadubey3/neon-ui.git"
+  },
+  "license": "ISC",
+  "author": "Ekta Dubey",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,6 +26,8 @@
     },
     "./styles.css": "./dist/style.css"
   },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -23,10 +37,6 @@
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0 || ^19.0.0",
-    "react-dom": "^18.2.0 || ^19.0.0"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -46,5 +56,10 @@
     "typescript": "^5.7.2",
     "vite": "^6.0.3",
     "vite-plugin-dts": "^4.3.0"
-  }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "module": "./dist/index.js"
 }
