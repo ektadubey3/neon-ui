@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: "24.18.0"
           registry-url: "https://www.npmjs.org"
+          cache: 'npm'
 
       #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
