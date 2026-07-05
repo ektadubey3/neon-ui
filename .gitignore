@@ -11,6 +11,7 @@
 
 # Environment files
 /.env
+/.npmrc
 
 # TypeScript cache
 *.tsbuildinfo
