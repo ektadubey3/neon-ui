@@ -1,0 +1,49 @@
+name: Publish package to NPM
+on:
+  pull_request:
+    branches:
+      -master # Triggers the workflow whenever changes are pushed to master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Downloads a copy of your code repository onto the runner
+      - name: Checkout Code
+        uses: actions/checkout@v7.0.0
+        with:
+          fetch-depth: 0 # Fetches history so git push can succeed
+
+      # 2. Installs Node.js on virtual machine
+      - name: Setup Node.js
+        uses: actions/types/setup-node@6.4.0
+        with:
+          node-version: "24.18.0"
+          registry-url: "https://www.npmjs.com/package/neon-ui-lib"
+
+      #3. Configure git profile so the runner can commit the version increment
+      - name: Configure git bot
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com
+        
+      #4. Installs project dependencies
+      - name: Install Dependencies
+        run: npm ci || npm install
+        
+      #5 Automatically updates package.json (e.g., 1.0.0 -> 1.0.1)
+      - name: Auto Increment Version
+        run: npm version patch -m "chore(release): bump version to %s [skip ci]"
+
+      #6 Pushes the version update and tag back into the master branch
+      - name: Push Version Update to GitHub
+        run: git push origin master --follow-tags
+      
+      #7 Finalizes by pushing your package to npm registry
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}  
+
+      
