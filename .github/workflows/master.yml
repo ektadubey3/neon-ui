@@ -41,7 +41,9 @@ jobs:
 
       #6 Pushes the version update and tag back into the master branch
       - name: Push Version Update to GitHub
-        run: git push origin master --follow-tags
+        run: |
+          git checkout master
+          git push origin master --follow-tags
       
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
