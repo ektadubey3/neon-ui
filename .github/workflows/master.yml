@@ -2,10 +2,12 @@ name: Publish package to NPM
 on:
   pull_request:
     branches:
-      -master # Triggers the workflow whenever changes are pushed to master
+      - master # Triggers the workflow whenever changes are pushed to master
 
 jobs:
   publish:
+    # Ensures this only runs if the PR was actually merged, not just closed
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -20,13 +22,13 @@ jobs:
         uses: actions/types/setup-node@6.4.0
         with:
           node-version: "24.18.0"
-          registry-url: "https://www.npmjs.com/package/neon-ui-lib"
+          registry-url: "https://www.npmjs.org"
 
       #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@://github.com
+          git config --global user.email "github-actions[bot]@84145992+ektadubey3@users.noreply.github.com"
         
       #4. Installs project dependencies
       - name: Install Dependencies
