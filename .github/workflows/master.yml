@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0 # Fetches history so git push can succeed
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ADMIN_PAT }}
 
       # 2. Installs Node.js on virtual machine
       - name: Setup Node.js
@@ -46,10 +46,8 @@ jobs:
       - name: Push Version Update to GitHub
         run: git push origin master --follow-tags
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ADMIN_PAT }}
       
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
         run: npm publish
-
-      
