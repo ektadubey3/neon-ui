@@ -1,6 +1,6 @@
 name: Publish package to NPM
 on:
-  pull_request:
+  push:
     branches:
       - master # Triggers the workflow whenever changes are pushed to master
 
@@ -16,13 +16,15 @@ jobs:
         uses: actions/checkout@v7.0.0
         with:
           fetch-depth: 0 # Fetches history so git push can succeed
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. Installs Node.js on virtual machine
       - name: Setup Node.js
-        uses: actions/setup-node@4
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: "24.18.0"
-          registry-url: "https://www.npmjs.org"
+          registry-url: "https://registry.npmjs.org/"
+          cache: 'npm'
 
       #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
@@ -33,6 +35,8 @@ jobs:
       #4. Installs project dependencies
       - name: Install Dependencies
         run: npm ci || npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
         
       #5 Automatically updates package.json (e.g., 1.0.0 -> 1.0.1)
       - name: Auto Increment Version
@@ -41,11 +45,11 @@ jobs:
       #6 Pushes the version update and tag back into the master branch
       - name: Push Version Update to GitHub
         run: git push origin master --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}  
 
       
