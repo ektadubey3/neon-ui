@@ -24,7 +24,6 @@ jobs:
           node-version: "24.18.0"
           registry-url: "https://registry.npmjs.org/"
           cache: 'npm'
-          always-auth: true # Forces the runner to apply authentication tokens globally
 
       #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
@@ -48,8 +47,11 @@ jobs:
       
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
-        run: npm publish
+        run: |
+          # Explicitly maps your secret key straight into the local runtime layer
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_SECRET}" > .npmrc
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}  
+          NPM_TOKEN_SECRET: ${{ secrets.NPM_TOKEN_KEY }}  
 
       
