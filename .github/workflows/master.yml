@@ -46,7 +46,10 @@ jobs:
 
       #6 Pushes the version update and tag back into the master branch
       - name: Push Version Update to GitHub
-        run: git push origin master --follow-tags
+        run: |
+          git fetch origin master
+          git rebase origin/master
+          git push origin master --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_PAT }}
       
