@@ -53,3 +53,5 @@ jobs:
       #7 Finalizes by pushing your package to npm registry
       - name: Publish to npm
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
