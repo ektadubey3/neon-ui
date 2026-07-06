@@ -11,6 +11,12 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {}
   },
+  viteFinal: async (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/neon-ui/';
+    }
+    return config;
+  },
   docs: {
     autodocs: "tag"
   }

@@ -5,11 +5,11 @@
   gap: 8px;
   min-width: 80px;
   border: 1px solid transparent;
-  border-radius: var(--ds-radius-md);
+  border-radius: var(--ds-radius-xs);
   font: 600 14px/1 var(--ds-font-sans);
   letter-spacing: 0;
   cursor: pointer;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
 }
 
 .ds-button:disabled {

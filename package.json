@@ -5,7 +5,11 @@
   "keywords": [
     "ui",
     "component-library",
-    "design-system"
+    "design-system",
+    "react",
+    "TypeScript",
+    "storybook",
+    "documentation"
   ],
   "homepage": "https://github.com/ektadubey3/neon-ui#readme",
   "bugs": {
@@ -15,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/ektadubey3/neon-ui.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "Ekta Dubey",
   "type": "module",
   "exports": {
@@ -36,6 +40,7 @@
     "storybook": "storybook dev -p 6006",
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
+    "deploy-storybook": "storybook-to-ghpages",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -49,6 +54,7 @@
     "@storybook/blocks": "^8.4.7",
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
