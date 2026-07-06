@@ -13,11 +13,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-  render: () => (
-    <Tooltip content="More information">
+  args: {
+    content: "More information",
+    children: (
       <IconButton label="More information" variant="outlined">
         <Info />
       </IconButton>
-    </Tooltip>
-  )
+    )
+  }
 };

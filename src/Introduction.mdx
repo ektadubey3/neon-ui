@@ -2,27 +2,31 @@ import { Meta } from "@storybook/blocks";
 
 <Meta title="Neon UI/Introduction" />
 
-# Neon UI
+<div class="intro-wrapper">
+    
+    # Neon UI design
 
-This library provides production-oriented React components, CSS custom properties, and TypeScript tokens for frontend teams building product interfaces.
+    This library provides production-oriented React components, CSS custom properties, and TypeScript tokens for frontend teams building product interfaces.
 
-## Principles
+    ## Principles
 
-- Keep controls predictable, compact, and accessible.
-- Prefer native semantics where possible.
-- Use stable dimensions for buttons, inputs, tabs, and overlays.
-- Treat Storybook as the shared source of truth for states and variants.
+    - Keep controls predictable, compact, and accessible.
+    - Prefer native semantics where possible.
+    - Use stable dimensions for buttons, inputs, tabs, and overlays.
+    - Treat Storybook as the shared source of truth for states and variants.
 
-## Import
+    ## Import
 
-```tsx
-import { Button, TextField, Select } from "@neon-ui";
-```
+    ```tsx
+    import { Button, TextField, Select } from "neon-ui-lib";
+    ```
 
-## CSS
+    ## CSS
 
-Import once at the app root if your bundler does not automatically include package CSS:
+    Import once at the app root if your bundler does not automatically include package CSS:
 
-```tsx
-import "@neon-ui/styles.css";
-```
+    ```tsx
+    import "neon-ui-lib/styles.css";
+    ```
+
+</div>
