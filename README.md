@@ -37,7 +37,7 @@ npm run build
 Use components:
 
 ```tsx
-import { Button, TextField } from "@neon-ui";
+import { Button, TextField } from "neon-ui-lib";
 
 export function AccountForm() {
   return (
@@ -64,14 +64,8 @@ Use CSS custom properties in app styles:
 Use TypeScript tokens when generating charts, themes, or config:
 
 ```ts
-import { tokens } from "@neon-ui";
+import { tokens } from "neon-ui-lib";
 
 const focusColor = tokens.color.focus;
 ```
 
-## Recommended Next Steps
-
-1. Replace `@neon-ui` with your package scope.
-2. Add your brand palette and typography decisions in `src/tokens/tokens.ts` and `src/styles.css`.
-3. Add visual regression testing once the component API stabilizes.
-4. Publish Storybook with CI so designers and engineers share one component reference.
