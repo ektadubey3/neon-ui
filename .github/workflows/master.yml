@@ -2,49 +2,52 @@ name: Publish package to NPM
 on:
   push:
     branches:
-      - master # Triggers the workflow whenever changes are pushed to master
+      - master
 
 jobs:
   publish:
-    # Ensures this only runs if the PR was actually merged, not just closed
-    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Downloads a copy of your code repository onto the runner
       - name: Checkout Code
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches history so git push can succeed
+          fetch-depth: 0
           token: ${{ secrets.ADMIN_PAT }}
 
-      # 2. Installs Node.js on virtual machine
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v6.4.0
+        uses: actions/setup-node@v4
         with:
           node-version: "24.18.0"
           registry-url: "https://registry.npmjs.org/"
-          cache: 'npm'
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
 
-      #3. Configure git profile so the runner can commit the version increment
       - name: Configure git bot
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@84145992+ektadubey3@users.noreply.github.com"
-        
-      #4. Installs project dependencies
+
       - name: Install Dependencies
-        run: npm ci || npm install
+        run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
-        
-      #5 Automatically updates package.json (e.g., 1.0.0 -> 1.0.1)
-      - name: Auto Increment Version
-        run: |
-          npm config set force true
-          npm version patch -m "chore(release): bump version to %s [skip ci]"
 
-      #6 Pushes the version update and tag back into the master branch
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build Library
+        run: pnpm build
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Auto Increment Version
+        run: pnpm version patch -m "chore(release): bump version to %s [skip ci]"
+
       - name: Push Version Update to GitHub
         run: |
           git fetch origin master
@@ -52,9 +55,8 @@ jobs:
           git push origin master --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_PAT }}
-      
-      #7 Finalizes by pushing your package to npm registry
+
       - name: Publish to npm
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}

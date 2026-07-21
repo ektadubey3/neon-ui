@@ -24,14 +24,16 @@ A React, TypeScript, Vite, and Storybook starter for a product-focused frontend 
 ## Setup
 
 ```bash
-npm install
-npm run storybook
+pnpm install
+pnpm storybook
 ```
 
 Build the package:
 
 ```bash
-npm run build
+pnpm build
+pnpm typecheck
+pnpm build-storybook
 ```
 
 Use components:

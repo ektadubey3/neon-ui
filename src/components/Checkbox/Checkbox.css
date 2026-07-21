@@ -29,7 +29,7 @@
   border: 1px solid var(--ds-color-border-strong);
   border-radius: var(--ds-radius-sm);
   background: var(--ds-color-surface);
-  color: #ffffff;
+  color: var(--ds-color-brand-contrast);
   transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 

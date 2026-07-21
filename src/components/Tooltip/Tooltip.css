@@ -6,14 +6,16 @@
 .ds-tooltip__content {
   position: absolute;
   left: 50%;
-  z-index: 20;
+  z-index: var(--ds-z-tooltip);
   width: max-content;
   max-width: 220px;
   padding: 6px 8px;
   border-radius: var(--ds-radius-md);
-  background: var(--ds-color-text);
-  color: #ffffff;
+  border: 1px solid var(--ds-color-border-strong);
+  background: var(--ds-color-surface-raised);
+  color: var(--ds-color-text);
   font: 600 12px/1.35 var(--ds-font-sans);
+  box-shadow: var(--ds-shadow-md);
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%);

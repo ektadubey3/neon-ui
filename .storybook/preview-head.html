@@ -1,45 +1,41 @@
+<link rel="icon" href="favicon.ico" />
+
 <style>
   html,
   body,
   #storybook-root {
-    background:
-      radial-gradient(circle at top left, rgb(0 229 255 / 0.14), transparent 30rem),
-      radial-gradient(circle at bottom right, rgb(255 79 216 / 0.1), transparent 32rem),
-      #080a12;
+    background: var(--ds-color-surface, #f8fafc);
   }
 
   .sbdocs.sbdocs-wrapper {
-    background:
-      radial-gradient(circle at top left, rgb(0 229 255 / 0.12), transparent 32rem),
-      #080a12;
-    color: #f5f8ff;
+    background: var(--ds-color-surface, #f8fafc);
+    color: var(--ds-color-text, #0f172a);
     padding: 0;
   }
 
   .sbdocs .sbdocs-content {
-    color: #f5f8ff;
+    color: var(--ds-color-text, #0f172a);
   }
 
   .sbdocs h1,
   .sbdocs h2,
-  .sbdocs h3,
+  .sbdocs h3 {
+    color: var(--ds-color-text, #0f172a);
+  }
+
   .sbdocs p,
   .sbdocs li {
-    color: #e7e8ff;
+    color: var(--ds-color-text-muted, #475569);
   }
 
   .sbdocs a {
-    color: #00e5ff;
+    color: var(--ds-color-brand, #1d4ed8);
   }
 
-  .sbdocs code {
-    background: #171d2d;
-    border: 1px solid #263149;
-    color: #c4ff4d;
-  }
   .doc-content {
     padding: 0 20px 4rem;
   }
+
   .intro-wrapper {
     padding: 24px;
   }

@@ -19,16 +19,16 @@
 }
 
 .ds-badge--success {
-  background: #e7f5ec;
+  background: var(--ds-color-success-soft);
   color: var(--ds-color-success);
 }
 
 .ds-badge--warning {
-  background: #fff4db;
+  background: var(--ds-color-warning-soft);
   color: var(--ds-color-warning);
 }
 
 .ds-badge--danger {
-  background: #fdeaea;
+  background: var(--ds-color-danger-soft);
   color: var(--ds-color-danger);
 }

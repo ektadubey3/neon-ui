@@ -1,8 +1,8 @@
 import { addons } from "@storybook/manager-api";
-import { neonTheme } from "./neonTheme";
+import { storybookTheme } from "./storybookTheme";
 
 addons.setConfig({
-  theme: neonTheme,
+  theme: storybookTheme,
   sidebar: {
     showRoots: true
   },

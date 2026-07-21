@@ -1,49 +1,10 @@
-export const tokens = {
-  color: {
-    // Backgrounds
-    surface: "#0B1020",
-    surfaceRaised: "#131A2E",
-    surfaceSubtle: "#1B2440",
-    surfaceGlass: "rgba(25, 34, 58, 0.72)",
-
-    // Text
-    text: "#F5F7FF",
-    textMuted: "#A5B1C8",
-    textSubtle: "#7E8AA5",
-
-    // Borders
-    border: "#28314D",
-    borderStrong: "#404C72",
-
-    // Brand
-    brand: "#7B6DFF",
-    brandHover: "#9488FF",
-    brandActive: "#6656F6",
-    brandSoft: "#2A2552",
-
-    // Accent
-    accent: "#4DA3FF",
-    accentSoft: "#1E355D",
-
-    // Semantic
-    success: "#3DDC84",
-    warning: "#F5B942",
-    danger: "#FF5F7A",
-    info: "#52B6FF",
-
-    // Focus
-    focus: "#9D8CFF",
-
-    // Overlay
-    overlay: "rgba(0,0,0,0.55)"
-  },
-
+const foundationTokens = {
   radius: {
     xs: "4px",
-    sm: "8px",
-    md: "12px",
-    lg: "16px",
-    xl: "20px",
+    sm: "6px",
+    md: "8px",
+    lg: "12px",
+    xl: "16px",
     pill: "9999px"
   },
 
@@ -60,27 +21,9 @@ export const tokens = {
     16: "64px"
   },
 
-  shadow: {
-    xs: "0 1px 3px rgba(0,0,0,0.25)",
-
-    sm: "0 6px 18px rgba(0,0,0,0.30)",
-
-    md: "0 12px 36px rgba(0,0,0,0.40)",
-
-    lg: "0 24px 64px rgba(0,0,0,0.55)",
-
-    glow: "0 0 0 1px rgba(123,109,255,0.15), 0 0 30px rgba(123,109,255,0.35)",
-
-    brandGlow: "0 0 20px rgba(123,109,255,0.45)",
-
-    blueGlow: "0 0 24px rgba(77,163,255,0.35)"
-  },
-
   font: {
     sans: `"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`,
-
     heading: `"Sora", "Inter", sans-serif`,
-
     mono: `"JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace`
   },
 
@@ -92,8 +35,8 @@ export const tokens = {
 
   transition: {
     fast: "150ms ease",
-    normal: "250ms ease",
-    slow: "400ms ease"
+    normal: "220ms ease",
+    slow: "320ms ease"
   },
 
   zIndex: {
@@ -107,48 +50,123 @@ export const tokens = {
   }
 } as const;
 
+export const lightThemeTokens = {
+  color: {
+    surface: "#F8FAFC",
+    surfaceRaised: "#FFFFFF",
+    surfaceSubtle: "#EFF6FF",
+    surfaceGlass: "rgba(255, 255, 255, 0.88)",
+
+    text: "#0F172A",
+    textMuted: "#475569",
+    textSubtle: "#64748B",
+    textInverse: "#FFFFFF",
+
+    border: "#CBD5E1",
+    borderStrong: "#94A3B8",
+
+    brand: "#1D4ED8",
+    brandHover: "#1E40AF",
+    brandActive: "#1E3A8A",
+    brandSoft: "#DBEAFE",
+    brandContrast: "#FFFFFF",
+
+    accent: "#0284C7",
+    accentSoft: "#E0F2FE",
+
+    success: "#15803D",
+    successSoft: "#DCFCE7",
+    warning: "#B45309",
+    warningSoft: "#FEF3C7",
+    danger: "#B91C1C",
+    dangerHover: "#991B1B",
+    dangerSoft: "#FEE2E2",
+    info: "#0369A1",
+    infoSoft: "#E0F2FE",
+    focus: "#2563EB",
+    overlay: "rgba(15, 23, 42, 0.50)"
+  },
+
+  gradient: {
+    brand: "linear-gradient(135deg, #0F172A 0%, #1D4ED8 58%, #0284C7 100%)",
+    surface: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)"
+  },
+
+  shadow: {
+    xs: "0 1px 2px rgba(15, 23, 42, 0.06)",
+    sm: "0 2px 8px rgba(15, 23, 42, 0.08)",
+    md: "0 12px 28px rgba(15, 23, 42, 0.12)",
+    lg: "0 24px 56px rgba(15, 23, 42, 0.16)",
+    glow: "0 0 0 1px rgba(29, 78, 216, 0.16), 0 12px 32px rgba(29, 78, 216, 0.14)",
+    brandGlow: "0 12px 28px rgba(29, 78, 216, 0.20)",
+    blueGlow: "0 12px 28px rgba(2, 132, 199, 0.18)"
+  },
+
+  ...foundationTokens
+} as const;
+
+export const darkThemeTokens = {
+  color: {
+    surface: "#0B1220",
+    surfaceRaised: "#111C2E",
+    surfaceSubtle: "#17233A",
+    surfaceGlass: "rgba(17, 28, 46, 0.88)",
+
+    text: "#F8FAFC",
+    textMuted: "#B6C2D2",
+    textSubtle: "#94A3B8",
+    textInverse: "#0F172A",
+
+    border: "#334155",
+    borderStrong: "#475569",
+
+    brand: "#60A5FA",
+    brandHover: "#93C5FD",
+    brandActive: "#3B82F6",
+    brandSoft: "#172554",
+    brandContrast: "#0B1220",
+
+    accent: "#38BDF8",
+    accentSoft: "#0C4A6E",
+
+    success: "#4ADE80",
+    successSoft: "#14532D",
+    warning: "#FBBF24",
+    warningSoft: "#713F12",
+    danger: "#F87171",
+    dangerHover: "#FCA5A5",
+    dangerSoft: "#7F1D1D",
+    info: "#7DD3FC",
+    infoSoft: "#0C4A6E",
+    focus: "#93C5FD",
+    overlay: "rgba(2, 6, 23, 0.72)"
+  },
+
+  gradient: {
+    brand: "linear-gradient(135deg, #0B1220 0%, #1E3A8A 54%, #0369A1 100%)",
+    surface: "linear-gradient(180deg, #111C2E 0%, #0B1220 100%)"
+  },
+
+  shadow: {
+    xs: "0 1px 2px rgba(2, 6, 23, 0.28)",
+    sm: "0 6px 18px rgba(2, 6, 23, 0.32)",
+    md: "0 16px 36px rgba(2, 6, 23, 0.42)",
+    lg: "0 28px 64px rgba(2, 6, 23, 0.56)",
+    glow: "0 0 0 1px rgba(96, 165, 250, 0.20), 0 14px 34px rgba(2, 6, 23, 0.40)",
+    brandGlow: "0 14px 30px rgba(96, 165, 250, 0.18)",
+    blueGlow: "0 14px 30px rgba(56, 189, 248, 0.16)"
+  },
+
+  ...foundationTokens
+} as const;
+
+export const themeTokens = {
+  light: lightThemeTokens,
+  dark: darkThemeTokens
+} as const;
+
+export const tokens = lightThemeTokens;
+
+export type ThemeName = keyof typeof themeTokens;
+export type ThemeTokens = typeof lightThemeTokens;
 export type DesignTokens = typeof tokens;
-
-// export const tokens = {
-//   color: {
-//     surface: "#ffffff",
-//     surfaceRaised: "#f7f8fa",
-//     surfaceSubtle: "#eef1f5",
-//     text: "#151922",
-//     textMuted: "#5b6575",
-//     border: "#d9dee7",
-//     borderStrong: "#aab4c3",
-//     brand: "#165dff",
-//     brandHover: "#0d49d7",
-//     brandSoft: "#e8efff",
-//     success: "#16803c",
-//     warning: "#9a5b00",
-//     danger: "#c62828",
-//     focus: "#7c3aed"
-//   },
-//   radius: {
-//     sm: "4px",
-//     md: "6px",
-//     lg: "8px",
-//     pill: "999px"
-//   },
-//   space: {
-//     1: "4px",
-//     2: "8px",
-//     3: "12px",
-//     4: "16px",
-//     5: "20px",
-//     6: "24px",
-//     8: "32px"
-//   },
-//   shadow: {
-//     sm: "0 1px 2px rgb(15 23 42 / 0.08)",
-//     md: "0 8px 24px rgb(15 23 42 / 0.12)"
-//   },
-//   font: {
-//     sans: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
-//     mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-//   }
-// } as const;
-
-// export type DesignTokens = typeof tokens;

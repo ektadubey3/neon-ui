@@ -4,11 +4,18 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), dts({ insertTypesEntry: true })],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+      exclude: ["src/**/*.stories.ts", "src/**/*.stories.tsx", ".storybook"]
+    })
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "DesignSystem",
+      name: "neon-ui",
+      cssFileName: "style",
       formats: ["es", "cjs"],
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs")
     },

@@ -35,7 +35,7 @@
 
 .ds-button--primary {
   background: var(--ds-color-brand);
-  color: #ffffff;
+  color: var(--ds-color-brand-contrast);
 }
 
 .ds-button--primary:hover:not(:disabled) {
@@ -65,11 +65,11 @@
 
 .ds-button--danger {
   background: var(--ds-color-danger);
-  color: #ffffff;
+  color: var(--ds-color-brand-contrast);
 }
 
 .ds-button--danger:hover:not(:disabled) {
-  background: #a61f1f;
+  background: var(--ds-color-danger-hover);
 }
 
 .ds-button__spinner {
@@ -84,5 +84,11 @@
 @keyframes ds-button-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-button__spinner {
+    animation: none;
   }
 }

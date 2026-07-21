@@ -1,11 +1,11 @@
 .ds-dialog__overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: var(--ds-z-modal);
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgb(21 25 34 / 0.48);
+  background: var(--ds-color-overlay);
 }
 
 .ds-dialog {
@@ -14,7 +14,8 @@
   width: min(480px, 100%);
   padding: 20px;
   border-radius: var(--ds-radius-lg);
-  background: var(--ds-color-surface);
+  border: 1px solid var(--ds-color-border);
+  background: var(--ds-color-surface-raised);
   box-shadow: var(--ds-shadow-md);
   font-family: var(--ds-font-sans);
 }
