@@ -20,7 +20,8 @@ jobs:
         with:
           node-version: "24.18.0"
           registry-url: "https://registry.npmjs.org/"
-          cache: "npm"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Configure git bot
         run: |
