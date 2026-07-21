@@ -46,7 +46,8 @@ jobs:
         run: pnpm build-storybook
 
       - name: Auto Increment Version
-        run: pnpm version patch -m "chore(release): bump version to %s [skip ci]"
+        run: |
+          pnpm version patch -m "chore(release): bump version to %s [skip ci]"
 
       - name: Push Version Update to GitHub
         run: |
