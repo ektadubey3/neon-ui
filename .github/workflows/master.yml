@@ -45,9 +45,23 @@ jobs:
       - name: Build Storybook
         run: pnpm build-storybook
 
-      - name: Auto Increment Version
+      - name: Prepare publish version
         run: |
-          pnpm version patch -m "chore(release): bump version to %s [skip ci]"
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+
+          if npm view "$PACKAGE_NAME@$CURRENT_VERSION" version >/dev/null 2>&1; then
+            pnpm version patch -m "chore(release): bump version to %s [skip ci]"
+          else
+            echo "$PACKAGE_NAME@$CURRENT_VERSION is not published yet; publishing current version."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
 
       - name: Push Version Update to GitHub
         run: |
@@ -56,8 +70,3 @@ jobs:
           git push origin master --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.ADMIN_PAT }}
-
-      - name: Publish to npm
-        run: pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_KEY }}
