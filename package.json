@@ -1,6 +1,6 @@
 {
   "name": "neon-ui-lib",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Neon UI is a library which provides production-oriented React components, CSS custom properties, and TypeScript tokens for frontend teams building product interfaces.",
   "keywords": [
     "ui",
